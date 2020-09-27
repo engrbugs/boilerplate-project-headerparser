@@ -18,16 +18,14 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
 // your first API endpoint... 
 app.get("/api/whoami", (req, res) => {
   const language = req.header('Accept-Language');
   const software = req.header('User-Agent');
   const ipaddress = req.header('x-forwarded-for');
 
-  res.json({greeting: language + software + ipaddress});
+  res.json({ language, software, ipaddress });
 });
-
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
