@@ -20,10 +20,10 @@ app.get("/", function (req, res) {
 
 
 // your first API endpoint... 
-app.get("/api/hello", function (req, res) {
-  res.json({greeting: 'hello API'});
+app.get("/api/hello/:date_str", function (req, res) {
+  const { date_str } = req.params;
+  res.json({greeting: 'hello API' + date_str});
 });
-
 
 
 // listen for requests :)
